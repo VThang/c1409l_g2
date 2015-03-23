@@ -20,7 +20,7 @@ function add_new() {
     }
 
     $_SESSION["cart"] = $cart;
-    redirect("../temp_product_list.php");
+    redirect("../product_info.php?productid=$productid");
 }
 
 function remove() {

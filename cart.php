@@ -12,7 +12,8 @@
     </head>
     <?php
     require_once 'header.php';
-    if (count($_SESSION["cart"]) != 0) {
+
+    if ((isset($_SESSION["cart"])) && count($_SESSION["cart"]) != 0) {
         $cart = $_SESSION["cart"];
         $i = count($_SESSION["cart"]);
 
@@ -36,59 +37,63 @@
                 <h2 class="center">My Shopping Cart</h2>
                 <form action="process/cart.php?do=select" method="post">
                     <?php
-                    if (count($_SESSION["cart"]) != 0) {
-                        ?>
-                        <table class="cart-item">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th style="text-align: left;">Product Name</th>
-                                    <th>Product Price</th>
-                                    <th>Quantity</th>
-                                    <th>Total</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                while ($row = mysqli_fetch_assoc($resultview)) {
-                                    ?>
+                    if (isset($_SESSION["cart"])) {
+                        if (count($_SESSION["cart"]) != 0) {
+                            ?>
+                            <table class="cart-item">
+                                <thead>
                                     <tr>
-                                        <td class="img"><img src="<?php echo $row["image1"] ?>" width="80px" /></td>
-                                        <td class="product"><h5><?php echo $row["title"] ?></h5></td>
-                                        <td class="price"><?php if (isset($row["price"])) {
-                                        echo $row["price"];
-                                    } else {
-                                        echo 0;
-                                    } ?> <i class="fa fa-usd"></i></td>
-                                        <td class="quantity"><input type="number" value="<?php echo $_SESSION["cart"][$row["product_id"]] ?>" name="quantity[<?php echo $o; ?>]" /></td>
-                                        <td class="total"><?php echo $cart[$row["product_id"]] * $row["price"]; ?> <i class="fa fa-usd"></td>
-                                        <td class="action"><a class="link" href="process/cart.php?do=remove&productid=<?php echo $row["product_id"] ?>" onclick="return confirm('Are you sure to delete this Product?')"><i class="fa fa-trash-o fa-2x"></i></a></td>
+                                        <th></th>
+                                        <th style="text-align: left;">Product Name</th>
+                                        <th>Product Price</th>
+                                        <th>Quantity</th>
+                                        <th>Total</th>
+                                        <th></th>
                                     </tr>
-        <?php
-        $o++;
-    }
-    ?>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td colspan="3"></td>
-                                    <td style="text-align: center"><button type="submit" id="update" value="update" name="btnsubmit"/>Update</td>
-                                    <td style="text-align: center">100$</td>
-                                    <td style="text-align: center"><button type="submit" id="update" value="checkout" name="btnsubmit"/>Checkout</td>
-                                </tr>
-                            </tfoot>
-                        </table>
-    <?php
-} else {
-    echo "<br/><h3 style='text-align: center;'>You don't have any product in your cart!</h1>";
-}
-?>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    while ($row = mysqli_fetch_assoc($resultview)) {
+                                        ?>
+                                        <tr>
+                                            <td class="img"><img src="<?php echo $row["image1"] ?>" width="80px" /></td>
+                                            <td class="product"><h5><?php echo $row["title"] ?></h5></td>
+                                            <td class="price"><?php
+                                                if (isset($row["price"])) {
+                                                    echo $row["price"];
+                                                } else {
+                                                    echo 0;
+                                                }
+                                                ?> <i class="fa fa-usd"></i></td>
+                                            <td class="quantity"><input type="number" value="<?php echo $_SESSION["cart"][$row["product_id"]] ?>" name="quantity[<?php echo $o; ?>]" /></td>
+                                            <td class="total"><?php echo $cart[$row["product_id"]] * $row["price"]; ?> <i class="fa fa-usd"></td>
+                                            <td class="action"><a class="link" href="process/cart.php?do=remove&productid=<?php echo $row["product_id"] ?>" onclick="return confirm('Are you sure to delete this Product?')"><i class="fa fa-trash-o fa-2x"></i></a></td>
+                                        </tr>
+                                        <?php
+                                        $o++;
+                                    }
+                                    ?>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="3"></td>
+                                        <td style="text-align: center"><button type="submit" id="update" value="update" name="btnsubmit"/>Update</td>
+                                        <td style="text-align: center">100$</td>
+                                        <td style="text-align: center"><button type="submit" id="update" value="checkout" name="btnsubmit"/>Checkout</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <?php
+                        }
+                    } else {
+                        echo "<br/><h3 style='text-align: center;'>You don't have any product in your cart!</h1>";
+                    }
+                    ?>
                 </form>                
                 <br/><br/>
             </div>
         </div>
     </main>
-<?php
-require_once 'footer.php';
-?>
+    <?php
+    require_once 'footer.php';
+    ?>
