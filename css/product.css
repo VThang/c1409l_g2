@@ -22,10 +22,11 @@
 #product_detail{
     display: block;
     float: left;
-    padding-left: 20px;
+    text-align: justify;
     overflow: hidden;
     color: black;
-    margin-left: 10px;
+    padding:5px;
+
 }
 #system_requirements{
     display: block;
@@ -44,12 +45,13 @@
 #divider{
     display: block;
     height: 40px; 
-    width: 317px;
+    width: 310px;
     border-left: 3px #e33327 solid;
     padding: 10px 0 0px 5px;    
     text-align: left;
     font-size: 20px;
     border-top: #D9D9D9 solid 1px;
+    float: left;
 }
 
 a{color:black;}
@@ -78,18 +80,25 @@ a:active{
     width: 875px;
     float: left;
     color: black;
+    overflow: scroll;
+    max-height: 300px;
 }
 #divider_n2{
-    height: 5px;
+    height: 10px;
+    display: block;
+    float: left;
+    width: 320px;
 }
 #related_links{
     padding-left: 10px;
     font-size: 15px;
+    display: block;
+    float: left;
 }
 #divider_1{
     display: block;
     height: 30px; 
-    width: 865px;
+    width: 850px;
     border-left: 3px #e33327 solid;  
     text-align: left;
     float: left;
@@ -99,5 +108,57 @@ a:active{
     margin-left: 10px;
 }
 button#cm_submit{
-     background-image: linear-gradient(#D9D9D9, #f0f0f0 ); 
+    background-image: linear-gradient(#D9D9D9, #f0f0f0 ); 
+}
+
+table.comment-table {
+    width: 850px;
+
+}
+table.comment-table th {
+    width: 72px;
+    text-align: right;
+}
+table.comment-table td{
+    width: 835px;
+    padding-left: 5px;
+}
+#price_ds{
+    display: block; 
+    width: 220px; 
+    float: left;
+    text-align: left;
+    padding-top: 5px;
+    font-size: 40px;
+    color: #333333;
+}
+#download{
+    padding-left: 20px;
+    display: block;
+    float: left;
+}
+#rd_ds{
+    display: block; 
+    width: 220px; 
+    float: left;
+    text-align: left;
+    padding-top: 5px;
+    font-size: 20px;
+    color: #333333;
+}
+table#customer_comment th{
+    width: 72px;
+    text-align: right;
+}
+table#customer_comment-table td{
+    width: 835px;
+    padding-left: 5px;
+}
+#release_date{
+    display: block;
+    float: left;
+}
+#advertisement{
+    display: block;
+    float: left;
 }
