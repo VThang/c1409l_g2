@@ -1,0 +1,76 @@
+@CHARSET "UTF-8";
+
+body{
+    padding:0;
+    margin:0;
+    width:100%;
+
+    font-family:tahoma;
+    font-size:0.8em;	
+}
+
+#wrapper{
+    border: solid 1px black;
+    width:1000px;
+    margin:0  auto;	 
+}
+
+#header {
+    background:yellow;
+}
+
+#body{
+    overflow:auto;
+}
+
+#left-bar{
+    background:green;
+    width:200px;
+    float:left;
+}
+#right-bar{
+    background:green;
+    width:200px;
+    float:left;
+}
+#main{
+    width:600px;
+    float:left;
+
+}
+
+#footer{
+    background:yellow;
+}
+
+h1{
+    padding:0;
+    margin:0;
+}
+
+table{
+    border: solid 1px blue;
+    border-collapse:collapse;
+    width:100%;
+}
+
+th{
+    background:blue;
+    color:white;
+}
+
+td, th{
+    border: solid 1px blue;
+    border-collapse:collapse;
+
+    padding:5px;
+}
+
+form table{
+    border:none;		
+}
+
+form th, form td{
+    background:none;
+    color:black;
+}

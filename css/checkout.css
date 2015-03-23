@@ -1,0 +1,15 @@
+div.content {
+    position: relative;
+}
+
+table {
+    margin: 0 auto;
+}
+
+div.main-content {
+    position: relative;
+}
+
+div.select {
+    padding-top: 20px;
+}

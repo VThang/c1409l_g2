@@ -1,0 +1,14 @@
+main {
+    padding-top: 10%;
+}
+
+table.table.login {
+    margin-top: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+}
+
+table {
+    border: 6px #eaeaea solid;
+}
