@@ -9,6 +9,7 @@
         <script src="js/jquery-2.1.3.min.js" type="text/javascript"></script>
         <link href="bxslider/jquery.bxslider.css" rel="stylesheet" />
         <script src="bxslider/jquery.bxslider.js" type="text/javascript"></script>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:800|Roboto&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
         <script type="text/javascript">
             $(document).ready(function () {
                 $('.bxslider').bxSlider({
@@ -42,15 +43,21 @@
 
     $price_query = "SELECT `price` FROM `product` WHERE `product_id`= '$productid'";
     $price_result = execute_query($price_query);
+    
+    $product_query = "SELECT * FROM `product` WHERE `product_id` = '$productid'";
+    $product_result = execute_query($product_query);
+    $product_row = mysqli_fetch_assoc($product_result);
+    
     ?>
 
     <div class="container">
         <div id="left_column">
             <div id="product_img">
                 <ul class="bxslider">
-                    <li width="795px"><img src="images/Demo/Dying-Light-logo.jpg" width="795px"/></li>
-                    <li width="795px"><img src="images/Demo/Dying-Light-Nighttime-Gameplay.jpg" width="795px"/></li>
-                    <li width="795px"><img src="images/Demo/5eMBbKea5tIahMDdzFR9kHEybOEbXOM8_gsm_169_dyinglight_walkthru_multi_ot_081613_640.jpg" width="795px"/></li>
+                    <?php if ($product_row['image1'] != "") { ?><li width="795px"><img src="<?php echo $product_row['image1'] ?>" height="450px" width="795px"/></li> <?php } ?>
+                    <?php if ($product_row['image2'] != "") { ?><li width="795px"><img src="<?php echo $product_row['image2'] ?>" height="450px" width="795px"/></li> <?php } ?>
+                    <?php if ($product_row['image3'] != "") { ?><li width="795px"><img src="<?php echo $product_row['image3'] ?>" height="450px" width="795px"/></li> <?php } ?>
+                    <?php if ($product_row['image4'] != "") { ?><li width="795px"><img src="<?php echo $product_row['image4'] ?>" height="450px" width="795px"/></li> <?php } ?>
                 </ul>
             </div>
 
@@ -84,7 +91,7 @@
             <div id="customer_comment">
                 <form action="process/comment.php?do=add_new" method="post">
                     <input type="hidden" name="productid" value="<?php echo $productid ?>">
-                    <table style="padding-left: 10px";>
+                    <table style="padding-left: 10px">
                         <tr>
                             <th>
                                 Email
@@ -195,7 +202,7 @@
                     <div id="price_ds">
                         <?php
                         $price_row = mysqli_fetch_assoc($price_result);
-                        echo $price_row['price'];
+                        echo $price_row['price']*EXCHANGE_RATE . 'đ';
                         ?>
                     </div>
                 </div>
@@ -228,7 +235,9 @@
             <div id="divider_n2">
             </div>
             <div id="advertisement">
-                <img src="images/Demo/Logo with lolly.jpg" width="320px"/>
+                <img src="<?php $a = rand(1, 5);
+                echo get_value_config('ad_product_side'.$a) ;
+                ?>" width="320px"/>
             </div>
         </div>
         <div id="page_divider"></div>

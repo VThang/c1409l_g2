@@ -102,6 +102,14 @@ function createLimitForPaging($pageNumber) {
     return " LIMIT $start, " . PAGE_ROW;
 }
 
+function createLimitForPagingProduct($pageNumber) {
+    if ($pageNumber < 1) {
+        $pageNumber = 1;
+    }
+    $start = ($pageNumber - 1) * CATEGORY_LIST;
+    return " LIMIT $start, " . CATEGORY_LIST;
+}
+
 /*
   Tính tổng số lượng trang với từng bảng
  *  */
