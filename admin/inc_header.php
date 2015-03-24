@@ -67,7 +67,8 @@ $adminresult = execute_query($query);
                         <a class="dropdown-toggle" href="#"><i class="icon-pictures"></i>Banner</a>
                         <ul class="dropdown-menu" data-role="dropdown">
                             <li><a href="banner_home.php">Home banner</a></li>
-                            <li><a href="banner_footer.php">Bottom banner</a></li>
+                            <li><a href="banner_category.php">Category banner</a></li>
+                            <li><a href="logo.php">Logo Setting</a></li>
                         </ul>
                     </li>
                     

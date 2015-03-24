@@ -24,5 +24,13 @@ function update_bannerfooter() {
     $configvalue = post('banner_footer');
     save_value_config('banner_footer', $configvalue);
     
-    redirect('../banner_footer.php');
+    redirect('../logo.php');
+}
+
+function update_headerlogo() {
+    $configvalue = post('logo_header');
+    
+    save_value_config('logo_header', $configvalue);
+    
+    redirect('../logo.php');
 }

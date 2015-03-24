@@ -2,6 +2,9 @@
 require_once './include/config.php';
 require_once './include/functions.php';
 require_once './include/process.php';
+
+$nav_query = "SELECT * FROM `category`";
+$nav_result = execute_query($nav_query);
 ?>
 <body>
     <div id="base-background" class="">
@@ -32,7 +35,7 @@ require_once './include/process.php';
         <div class="container" id="header-top">
             <a class="link" href="home.php">
                 <div class="logo">
-                    <img src="images/paygames 3.jpg" style="height: 100px;"/>
+                    <img src="<?php echo get_value_config('logo_header') ?>" style="height: 160px;"/>
                 </div>
             </a>
         </div>
@@ -41,26 +44,13 @@ require_once './include/process.php';
     <nav>
         <div class="container">
             <ul class="list-inline navbar">
-                <li class="nav-button">
-                    <a href="steam.php" class="nav-link">
-                        Steam Games
-                    </a>
-                </li>
-                <li class="nav-button">
-                    <a href="origin.php" class="nav-link">
-                        Origin Games
-                    </a>
-                </li>
-                <li class="nav-button">
-                    <a href="#" class="nav-link">
-                        Blizzard Games 
-                    </a>
-                </li>
-                <li class="nav-button">
-                    <a href="#" class="nav-link">
-                        Bundle Games
-                    </a>
-                </li>
+                <?php while ($nav_row = mysqli_fetch_assoc($nav_result)) { ?>
+                    <li class="nav-button">
+                        <a href="category.php?cateid=<?php echo $nav_row['cate_id'] ?>" class="nav-link">
+                            <?php echo $nav_row['cate_name'] ?>
+                        </a>
+                    </li>
+                <?php } ?>
             </ul>
         </div>
     </nav>
