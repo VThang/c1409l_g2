@@ -1,8 +1,8 @@
 <?php
-define("DB_HOST","202.150.213.34");
-define("DB_USER","u211045742_vth1");
-define("DB_PASS","A[LKjKEP78");
-define("DB_NAME","u211045742_vth1");
+define("DB_HOST","localhost");
+define("DB_USER","root");
+define("DB_PASS","");
+define("DB_NAME","c1409l_g2");
 define("PAGE_ROW", 10);
 define("CATEGORY_LIST", 12);
 define("EXCHANGE_RATE", 16000);
