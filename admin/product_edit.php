@@ -14,7 +14,8 @@ if (mysqli_num_rows($result) > 0) {
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Admin ControlPanel</title>
+        <meta content="../images/favicon128.png" itemprop="image">
         <link rel="stylesheet" type="text/css" href="css/metro-bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="css/global_admin.css" />
         <link rel="stylesheet" type="text/css" href="css/iconFont.css" />

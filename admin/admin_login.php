@@ -7,7 +7,8 @@ require_once './process/_inc.php';
     <head>
         <meta charset="UTF-8">
         <link href="css/admin">
-        <title>Admin Login</title>
+        <title>Admin ControlPanel</title>
+        <meta content="../images/favicon128.png" itemprop="image">
         <link rel="stylesheet" type="text/css" href="css/login_admin.css" />
         <link rel="stylesheet" type="text/css" href="css/metro-bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="css/iconFont.css" />

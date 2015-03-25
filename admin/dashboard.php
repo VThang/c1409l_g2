@@ -7,7 +7,8 @@ require_once './inc_checklogin.php';
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Admin ControlPanel</title>
+        <meta content="../images/favicon128.png" itemprop="image">
         <link rel="stylesheet" type="text/css" href="css/metro-bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="css/global_admin.css" />
         <link rel="stylesheet" type="text/css" href="css/dashboard.css" />
