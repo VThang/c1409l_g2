@@ -1,33 +1,16 @@
 <?php
 
-define("0", "Online Banking");
-define("1", "By Mobile Card");
-define("2", "In our Store");
-define("3", "Pending");
-define("4", "Processing");
-define("5", "Canceled");
-define("6", "Complete");
+$STATUS = array();
+$STATUS["0"] = "Online Banking";
+$STATUS["1"] = "By Mobile Card";
+$STATUS["2"] = "In our Store";
+$STATUS["3"] = "Pending";
+$STATUS["4"] = "Processing";
+$STATUS["5"] = "Canceled";
+$STATUS["6"] = "Complete";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
+//$STATUS[$stt];
 
 
 
@@ -37,6 +20,12 @@ function execute_query($query) {
     global $connection;
     // $query = mysqli_real_escape_string($connection, $query);
     return mysqli_query($connection, $query);
+}
+
+function affected_row() {
+    global $connection;
+    // $query = mysqli_real_escape_string($connection, $query);
+    return mysqli_affected_rows($connection);
 }
 
 /*

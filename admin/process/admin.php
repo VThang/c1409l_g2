@@ -20,7 +20,7 @@ function update() {
     $fullname = post("fullname");
     $query = "UPDATE `admin` SET `Username`='$username', `Password`='$password', `Fullname`='$fullname' WHERE `adminID`='$adminid'";
     
-    execute_query($query);
+    execute_query($query); 
     redirect("../admin_list.php");
 }
 

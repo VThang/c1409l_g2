@@ -16,6 +16,8 @@ require_once './inc_checklogin.php';
         <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
         <script type="text/javascript" src="js/jquery.widget.min.js"></script>
         <script type="text/javascript" src="js/metro.min.js"></script>
+        
+        <script type="text/javascript" src="js/validateform.js"></script>
     </head>
     <?php
     include_once './inc_header.php';
@@ -23,14 +25,21 @@ require_once './inc_checklogin.php';
     $product_query = "SELECT * FROM `category`";
     $product_result = execute_query($product_query);
     ?>
-    <form action="process/product.php?do=add_new" method="post">
+    
+    <style>
+        #error-msg p{color:red}
+    </style>
+    <div id="error-msg">
+    </div>
+    
+    <form action="process/product.php?do=add_new" method="post" onsubmit="return validate()">
         <table class="table hovered">
             <tr>
                 <th>
                     Title
                 </th>
                 <td>
-                    <input type="text" value="" name="title" />
+                    <input type="text" value="" name="title" id="title" alt="Title" />
                 </td>
             </tr>
             <tr>
@@ -124,6 +133,23 @@ require_once './inc_checklogin.php';
         </table>
     </form>
 
+    
+    <script type="text/javascript">
+        function validate(){
+            msg ="";
+            msg += validateRequire("title");
+            
+            msg += validateEmail("title");
+            
+            if (msg != "") {
+                $("#error-msg").html(msg);
+                return false;
+                
+            } else {
+                return true;
+            }
+        }
+    </script>
 
 
 

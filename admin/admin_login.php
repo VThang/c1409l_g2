@@ -14,9 +14,9 @@ require_once './process/_inc.php';
         <link rel="stylesheet" type="text/css" href="css/iconFont.css" />
         <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
         <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
-        <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
-        <script type="text/javascript" src="js/jquery.widget.min.js"></script>
         <script type="text/javascript" src="js/metro.min.js"></script>
+
+        <script type="text/javascript" src="js/validateform.js"></script>
     </head>
     <body class="metro">
         <main>
@@ -37,7 +37,7 @@ require_once './process/_inc.php';
 
                         <tr>
                             <th>Password</th>
-                            <td><input type="password" name="password" /></td>
+                            <td><input type="password" name="password" id="password" /></td>
                         </tr>
 
                         <tr>
