@@ -19,6 +19,9 @@ require_once './inc_checklogin.php';
     </head>
     <?php
     include_once './inc_header.php';
+
+    $product_query = "SELECT * FROM `category`";
+    $product_result = execute_query($product_query);
     ?>
     <form action="process/product.php?do=add_new" method="post">
         <table class="table hovered">
@@ -40,11 +43,19 @@ require_once './inc_checklogin.php';
             </tr>
             <tr>
                 <th>
-                    Category ID
+                    Category
                 </th>
                 <td>
-                    <input type="text" value="" name="cate_id" required="" />
-                </td>            
+                    <select name="cate_id">
+                        <?php
+                        while ($product_row = mysqli_fetch_assoc($product_result)) {
+                            ?>
+                        <option value="<?php echo $product_row['cate_id'] ?>"><?php echo $product_row['cate_name'] ?></option>
+                            <?php
+                        }
+                        ?>
+                    </select>
+                </td> 
             </tr>
             <tr>
                 <th>

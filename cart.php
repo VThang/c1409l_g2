@@ -53,20 +53,22 @@
                                 </thead>
                                 <tbody>
                                     <?php
+                                    $total = 0;
                                     while ($row = mysqli_fetch_assoc($resultview)) {
+                                        $total += $row["price"];
                                         ?>
                                         <tr>
                                             <td class="img"><img src="<?php echo $row["image1"] ?>" width="80px" /></td>
                                             <td class="product"><h5><?php echo $row["title"] ?></h5></td>
                                             <td class="price"><?php
                                                 if (isset($row["price"])) {
-                                                    echo $row["price"];
+                                                    echo $row["price"]*EXCHANGE_RATE;
                                                 } else {
                                                     echo 0;
                                                 }
-                                                ?> <i class="fa fa-usd"></i></td>
+                                                ?> đ</td>
                                             <td class="quantity"><input type="number" value="<?php echo $_SESSION["cart"][$row["product_id"]] ?>" name="quantity[<?php echo $o; ?>]" /></td>
-                                            <td class="total"><?php echo $cart[$row["product_id"]] * $row["price"]; ?> <i class="fa fa-usd"></td>
+                                            <td class="total"><?php echo $cart[$row["product_id"]] * $row["price"]; ?> đ</td>
                                             <td class="action"><a class="link" href="process/cart.php?do=remove&productid=<?php echo $row["product_id"] ?>" onclick="return confirm('Are you sure to delete this Product?')"><i class="fa fa-trash-o fa-2x"></i></a></td>
                                         </tr>
                                         <?php
@@ -78,7 +80,7 @@
                                     <tr>
                                         <td colspan="3"></td>
                                         <td style="text-align: center"><button type="submit" id="update" value="update" name="btnsubmit"/>Update</td>
-                                        <td style="text-align: center">100$</td>
+                                        <td style="text-align: center"><?php echo $total ?> đ</td>
                                         <td style="text-align: center"><button type="submit" id="update" value="checkout" name="btnsubmit"/>Checkout</td>
                                     </tr>
                                 </tfoot>

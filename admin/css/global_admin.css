@@ -68,6 +68,7 @@ div.left {
     height: 100%;
     display: block;
     float: left;
+    position: initial;
 }
 
 #right {

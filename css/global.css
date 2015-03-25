@@ -81,7 +81,7 @@ body
 header
 {
     font-family: 'Open Sans', sans-serif;
-    height: 194px;
+    height: 220px;
     margin: 0px;
     padding: 0px;
     font-size: 0.8em;
@@ -120,7 +120,7 @@ div#header-top
 
 .logo
 {
-    //margin-top: 34px;
+    margin-top: 5px;
     //margin-left: 120px;
 }
 
@@ -367,3 +367,14 @@ div.main-content {
     z-index: 1000;
     min-height: 300px;
 }
+
+input[type=text] {padding:5px; border:2px solid #ccc; 
+-webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+input[type=text]:focus {border-color:#333; }
+
+input[type=submit] {padding:5px 15px; background:#ccc; border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; }

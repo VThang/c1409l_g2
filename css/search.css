@@ -1,3 +1,31 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 25, 2015, 2:40:05 PM
+    Author     : VThang
+*/
+
+div.paging ul li {
+    list-style: none;
+}
+ul li { display: inline; }
+div.paging {
+    width: 200px;
+    float: right;
+}
+
+h2{
+    position: relative;
+    float: right;
+    color: #139ff7;
+    margin-right: 10px;
+}
+
+
+
 #game-list
 {
     position: relative;
@@ -51,30 +79,4 @@ img.img-front
     left: 269px;
     margin: 0 0 0 0;
     padding: 0 0 0 0;
-}
-
-a.link {
-    text-decoration: none;
-}
-
-a:link { text-decoration: none}
-a:visited { text-decoration: none}
-a:hover { text-decoration: underline}
-a:active { text-decoration: none}
-
-div.paging ul li {
-    list-style: none;
-}
-ul li { display: inline; }
-div.paging {
-    width: 200px;
-    float: right;
-}
-
-h2 {
-    position: relative;
-    float: right;
-    color: #139ff7;
-    margin-right: 10px;
-        
 }

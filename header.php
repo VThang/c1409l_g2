@@ -19,11 +19,24 @@ $nav_result = execute_query($nav_query);
     <header>
         <div class="other-header">
             <div class="container">
-                <div id="welcome-top">
-                    <a class="link" href="home.php">WELCOME TO paygames</a>
+                <div id="welcome-top" style="position: relative; height: 32px;">
+                    <div style="position: relative; padding-top: 5px; padding-bottom: auto;">
+                        <a class="link" style="font-size: 1.3em;" href="home.php">WELCOME TO paygames</a>
+                    </div>
                 </div>
                 <div id="other-top" class="right-text">
                     <ul class="list-inline right-text" style="overflow: hidden">
+                        <li>
+                            <form action="process/search.php?do=select" method="post">
+                                Search: 
+                                <input type="text" name="s_query" id="search" style="line-height: 0.8em"/>
+                                <select name="filter">
+                                    <option value="title">Title</option>
+                                    <option value="cate_name">Category</option>
+                                </select>
+                                <input type="submit" id="search" value="Search" style="line-height: 1em"/>
+                            </form>
+                        </li>
                         <li><a class="link" href="cart.php"><i class="fa fa-shopping-cart fa-lg fa-fw"></i> My Cart</a>
                         </li>
                         <li>

@@ -2,7 +2,7 @@
 define("DB_HOST","localhost");
 define("DB_USER","root");
 define("DB_PASS","");
-define("DB_NAME","c1409l_g2");
+define("DB_NAME","g2_c1409l");
 define("PAGE_ROW", 10);
 define("CATEGORY_LIST", 12);
 define("EXCHANGE_RATE", 16000);

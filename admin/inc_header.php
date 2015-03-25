@@ -6,8 +6,8 @@ $adminresult = execute_query($query);
 
 <body class="metro">
     <div class="container">
-        <div id="left">
-            <div class="sidebar dark">
+        <div id="left" style="position: initial;">
+            <div class="sidebar dark" style="width: 200px; position: fixed;">
                 <ul>
                     <li class="title">&nbsp;&nbsp;PAYGAMESVN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
                     <li class="active"><a href="dashboard.php"><i class="icon-home"></i>Dashboard</a></li>
@@ -71,11 +71,7 @@ $adminresult = execute_query($query);
                             <li><a href="logo.php">Logo Setting</a></li>
                         </ul>
                     </li>
-                    
                     <li><a href="../eXtplorer/index.php"><i class="icon-upload-2"></i>Upload tools</a></li>
-                    
-                    
-                    
                 </ul>
             </div>
         </div>
