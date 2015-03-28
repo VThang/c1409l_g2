@@ -16,18 +16,19 @@ require_once './inc_checklogin.php';
         <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
         <script type="text/javascript" src="js/jquery.widget.min.js"></script>
         <script type="text/javascript" src="js/metro.min.js"></script>
+        <script type="text/javascript" src="js/validateform.js"></script>
     </head>
     <?php
     include_once './inc_header.php';
     ?>
-    <form action="process/customer.php?do=add_new" method="post">
+    <form action="process/customer.php?do=add_new" method="post" onsubmit="validate()">
         <table class="table hovered">
             <tr>
                 <th>
                     Email
                 </th>
                 <td>
-                    <input type="text" value="" name="email" />
+                    <input type="text" id="email" value="" name="email" />
                 </td>
             </tr>
             <tr>
@@ -56,6 +57,22 @@ require_once './inc_checklogin.php';
             </tr>
         </table>
     </form>
+
+    <script type="text/javascript">
+        function validate() {
+            msg = "";
+            msg += validateRequire("content");
+            //msg += validateEmail("email");
+            
+            if (msg != "") {
+                $("#error-msg").html(msg);
+                return false;
+
+            } else {
+                return true;
+            }
+        }
+    </script> 
 
     <?php
     include_once './inc_footer.php';

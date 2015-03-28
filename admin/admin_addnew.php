@@ -16,18 +16,19 @@ include_once './inc_header.php';
         <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
         <script type="text/javascript" src="js/jquery.widget.min.js"></script>
         <script type="text/javascript" src="js/metro.min.js"></script>
+        <script type="text/javascript" src="js/validateform.js"></script>
     </head>
     <?php
     include_once './inc_header.php';
     ?>
-    <form action="process/admin.php?do=add_new" method="post">
+    <form action="process/admin.php?do=add_new" method="post" onsubmit="return validate()">
         <table class="table hovered">
             <tr>
                 <th>
                     Username
                 </th>
                 <td>
-                    <input type="text" value="" name="username" />
+                    <input type="text" id="username" value="" name="username" />
                 </td>
             </tr>
             <tr>
@@ -35,7 +36,7 @@ include_once './inc_header.php';
                     Password
                 </th>
                 <td>
-                    <input type="password" value="" name="password" />
+                    <input type="password" id="password" value="" name="password" />
                 </td>            
             </tr>
             <tr>
@@ -43,7 +44,7 @@ include_once './inc_header.php';
                     Fullname
                 </th>
                 <td>
-                    <input type="text" value="" name="fullname" />
+                    <input type="text" id="fullname" value="" name="fullname" />
                 </td>            
             </tr>
             <tr>
@@ -56,6 +57,27 @@ include_once './inc_header.php';
             </tr>
         </table>
     </form>
+
+    <script type="text/javascript">
+        function validate() {
+            msg = "";
+            msg += validateRequire("username");
+            msg += validateRequire("password");
+            msg += validateRequire("fullname");
+
+            if (msg != "") {
+                $("#error-msg").html(msg);
+                return false;
+
+            } else {
+                return true;
+            }
+        }
+    </script>
+
+
+
+
     <?php
     include_once 'inc_footer.php';
     ?>

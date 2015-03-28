@@ -3,8 +3,8 @@ require_once './process/_inc.php';
 require_once './inc_checklogin.php';
 date_default_timezone_set('Asia/Bangkok');
 
-$query1 = "SELECT * FROM `customer`";
-$result1 = execute_query($query1);
+$customer_query = "SELECT * FROM `customer`";
+$customer_result = execute_query($customer_query);
 
 $query2 = "SELECT * FROM `product`";
 $result2 = execute_query($query2);
@@ -23,11 +23,12 @@ $result2 = execute_query($query2);
         <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
         <script type="text/javascript" src="js/jquery.widget.min.js"></script>
         <script type="text/javascript" src="js/metro.min.js"></script>
+        <script type="text/javascript" src="js/validateform.js"></script>
     </head>
     <?php
     include_once './inc_header.php';
     ?>
-    <form action="process/order.php?do=add_new" method="post">
+    <form action="process/order.php?do=add_new" method="post" onsubmit="validate()">
         <table class="table hovered">
             <tr>
                 <th>
@@ -43,18 +44,22 @@ $result2 = execute_query($query2);
                 </th>
                 <td>
                     <select name="customer_id">
-                        <?php while ($row1 = mysqli_fetch_assoc($result1)) { ?>
-                            <option value="<?php echo $row1['customer_id']; ?>"><?php echo $row1['email']; ?></option>
+                        <?php while ($customer_row = mysqli_fetch_assoc($customer_result)) { ?>
+                            <option value="<?php echo $customer_row['customer_id']; ?>"><?php echo $customer_row['email']; ?></option>
                         <?php } ?>
                     </select>
-                </td>            
+                </td>
             </tr>
             <tr>
                 <th>
-                    Remarks
+                    Method
                 </th>
                 <td>
-                    <textarea type="text" name="remarks" ></textarea>
+                    <select name="remarks">
+                        <option value="1">Online Banking</option>
+                        <option value="2">By Mobile Card</option>
+                        <option value="3">In our Store</option>
+                    </select>
                 </td>            
             </tr>
             <tr>
@@ -67,6 +72,22 @@ $result2 = execute_query($query2);
             </tr>
         </table>
     </form>
+
+    <script type="text/javascript">
+        function validate() {
+            msg = "";
+            msg += validateRequire("content");
+            //msg += validateEmail("email");
+
+            if (msg != "") {
+                $("#error-msg").html(msg);
+                return false;
+
+            } else {
+                return true;
+            }
+        }
+    </script> 
 
     <?php
     include_once './inc_footer.php';

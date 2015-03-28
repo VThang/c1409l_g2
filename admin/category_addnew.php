@@ -17,18 +17,19 @@ include_once './inc_header.php';
         <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
         <script type="text/javascript" src="js/jquery.widget.min.js"></script>
         <script type="text/javascript" src="js/metro.min.js"></script>
+        <script type="text/javascript" src="js/validateform.js"></script>
     </head>
     <?php
     include_once './inc_header.php';
     ?>
-    <form action="process/category.php?do=add_new" method="post">
+    <form action="process/category.php?do=add_new" method="post" onsubmit="return validate()">
         <table class="table hovered">
             <tr>
                 <th>
                     Category Name
                 </th>
                 <td>
-                    <input type="text" value="" name="cate_name" />
+                    <input type="text" id="category_name" value="" name="cate_name" />
                 </td>
             </tr>
             <tr>
@@ -41,6 +42,22 @@ include_once './inc_header.php';
             </tr>
         </table>
     </form>
+    
+    <script type="text/javascript">
+        function validate() {
+            msg = "";
+            msg += validateRequire("category_name");
+
+            if (msg != "") {
+                $("#error-msg").html(msg);
+                return false;
+
+            } else {
+                return true;
+            }
+        }
+    </script>
+    
     <?php
     require 'inc_footer.php';
     ?>

@@ -16,7 +16,6 @@ require_once './inc_checklogin.php';
         <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
         <script type="text/javascript" src="js/jquery.widget.min.js"></script>
         <script type="text/javascript" src="js/metro.min.js"></script>
-        
         <script type="text/javascript" src="js/validateform.js"></script>
     </head>
     <?php
@@ -25,13 +24,7 @@ require_once './inc_checklogin.php';
     $product_query = "SELECT * FROM `category`";
     $product_result = execute_query($product_query);
     ?>
-    
-    <style>
-        #error-msg p{color:red}
-    </style>
-    <div id="error-msg">
-    </div>
-    
+
     <form action="process/product.php?do=add_new" method="post" onsubmit="return validate()">
         <table class="table hovered">
             <tr>
@@ -39,7 +32,7 @@ require_once './inc_checklogin.php';
                     Title
                 </th>
                 <td>
-                    <input type="text" value="" name="title" id="title" alt="Title" />
+                    <input type="text" value="" name="title" id="title"/>
                 </td>
             </tr>
             <tr>
@@ -47,7 +40,7 @@ require_once './inc_checklogin.php';
                     Price
                 </th>
                 <td>
-                    <input type="number" value="" name="price" />
+                    <input type="number" id="price" value="" name="price" />
                 </td>            
             </tr>
             <tr>
@@ -59,7 +52,7 @@ require_once './inc_checklogin.php';
                         <?php
                         while ($product_row = mysqli_fetch_assoc($product_result)) {
                             ?>
-                        <option value="<?php echo $product_row['cate_id'] ?>"><?php echo $product_row['cate_name'] ?></option>
+                            <option value="<?php echo $product_row['cate_id'] ?>"><?php echo $product_row['cate_name'] ?></option>
                             <?php
                         }
                         ?>
@@ -71,7 +64,7 @@ require_once './inc_checklogin.php';
                     Release Date
                 </th>
                 <td>
-                    <input type="date" value="" name="release_date" />
+                    <input type="date" id="" name="release_date" />
                 </td>            
             </tr>
             <tr>
@@ -119,7 +112,7 @@ require_once './inc_checklogin.php';
                     Image 5
                 </th>
                 <td>
-                    <input type="text" value="" name="image5" />
+                    <input type="text" id="image5" value="" name="image5" />
                 </td>            
             </tr>
             <tr>
@@ -133,18 +126,18 @@ require_once './inc_checklogin.php';
         </table>
     </form>
 
-    
+
     <script type="text/javascript">
-        function validate(){
-            msg ="";
+        function validate() {
+            msg = "";
             msg += validateRequire("title");
-            
-            msg += validateEmail("title");
-            
+            msg += validateRequire("price");
+            msg += validateRequire("image5");
+
             if (msg != "") {
                 $("#error-msg").html(msg);
                 return false;
-                
+
             } else {
                 return true;
             }

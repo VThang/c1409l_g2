@@ -61,7 +61,7 @@ $adminresult = execute_query($query);
                         <li><a href="">Subitem 2</a></li>
                         <li><a href="">Subitem 3</a></li>
                     </ul>
-                    
+
                     <li class="title"><i class="icon-cog"></i> Config</li>
                     <li class="stick bg-yellow">
                         <a class="dropdown-toggle" href="#"><i class="icon-pictures"></i>Banner</a>
@@ -98,6 +98,14 @@ $adminresult = execute_query($query);
                             ?>
                             <img src="../images/loader_gif.gif"/>
                         </button>
+
+                        <span class="element-divider" style=""></span>
+                        <span class="element-divider place-right"></span>
+                        <div class="ellement" style="padding-left: 335px;">
+                            Error:
+                            <div id="error-msg" style=" color: red; text-transform: capitalize">
+                            </div>
+                        </div>
                     </nav>
                 </nav>
             </nav>
