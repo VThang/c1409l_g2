@@ -38,61 +38,127 @@ require_once './inc_checklogin.php';
                 </div>
 
                 <div class="tile double bg-cyan" data-click="transform">
-                    <div class="tile-content icon">
-                        <i class="icon-cabinet"></i>
-                    </div>
-                    <div class="brand bg-black">
-                        <span class="label fg-white">Product Category</span>
-                        <div class="badge bg-darkRed paused"></div>
-                    </div>
+                    <a href="product_list.php">
+                        <div class="tile-content icon">
+                            <i class="icon-cabinet"></i>
+                        </div>
+                        <div class="brand bg-black">
+                            <span class="label fg-white">Product Category</span>
+                            <div class="badge bg-darkRed paused"></div>
+                        </div>
+                    </a>
                 </div>
                 <div class="tile double bg-amber" data-click="transform">
-                    <div class="tile-content icon">
-                        <i class="icon-target-2"></i>
-                    </div>
-                    <div class="brand bg-black">
-                        <span class="label fg-white">Product</span>
-                        <div class="badge bg-darkRed paused"></div>
-                    </div>
+                    <a href="product_list.php">
+                        <div class="tile-content icon">
+                            <i class="icon-target-2"></i>
+                        </div>
+                        <div class="brand bg-black">
+                            <span class="label fg-white">Product</span>
+                            <div class="badge bg-darkRed paused"></div>
+                        </div>
+                    </a>
                 </div>
                 <div class="tile bg-lightGreen" data-click="transform">
-                    <div class="tile-content icon">
-                        <i class="icon-user-2"></i>
-                    </div>
-                    <div class="brand bg-black">
-                        <span class="label fg-white">Customer</span>
-                        <div class="badge bg-darkRed paused"></div>
-                    </div>
+                    <a href="customer_list.php">
+                        <div class="tile-content icon">
+                            <i class="icon-user-2"></i>
+                        </div>
+                        <div class="brand bg-black">
+                            <span class="label fg-white">Customer</span>
+                            <div class="badge bg-darkRed paused"></div>
+                        </div>
+                    </a>
                 </div>
                 <div class="tile bg-indigo" data-click="transform">
-                    <div class="tile-content icon">
-                        <i class="icon-comments-4"></i>
-                    </div>
-                    <div class="brand bg-black">
-                        <span class="label fg-white">Comment</span>
-                        <div class="badge bg-darkRed paused"></div>
-                    </div>
+                    <a href="comment_list.php">
+                        <div class="tile-content icon">
+                            <i class="icon-comments-4"></i>
+                        </div>
+                        <div class="brand bg-black">
+                            <span class="label fg-white">Comment</span>
+                            <div class="badge bg-darkRed paused"></div>
+                        </div>
+                    </a>
                 </div>
                 <br/>
                 <div class="tile double bg-steel" data-click="transform">
-                    <div class="tile-content icon">
-                        <i class="icon-cart"></i>
-                    </div>
-                    <div class="brand bg-black">
-                        <span class="label fg-white">Order</span>
-                        <div class="badge bg-darkRed paused"></div>
-                    </div>
+                    <a href="order_list.php">
+                        <div class="tile-content icon">
+                            <i class="icon-cart"></i>
+                        </div>
+                        <div class="brand bg-black">
+                            <span class="label fg-white">Order</span>
+                            <div class="badge bg-darkRed paused"></div>
+                        </div>
+                    </a>
                 </div>
-
-
             </div>
         </div>
+        <div class="tile-area">
 
+            <div class="tile-group six">
+                <div class="tile double-vertical bg-cyan" data-click="transform">
+                    <a href="email_admin_send.php">
+                        <div class="tile-content icon">
+                            <i class="icon-mail"></i>
+                        </div>
+                        <div class="brand bg-black">
+                            <span class="label fg-white">Send Email</span>
+                            <div class="badge bg-darkRed paused"></div>
+                        </div>
+                    </a>
+                </div>
 
+                <div class="tile double-vertical bg-indigo" data-click="transform">
+                    <a href="logo.php">
+                        <div class="tile-content icon">
+                            <i class="icon-calendar"></i>
+                        </div>
+                        <div class="brand bg-black">
+                            <span class="label fg-white">Logo Setting</span>
+                            <div class="badge bg-darkRed paused"></div>
+                        </div>
+                    </a>
+                </div>
 
+                <div class="tile double double-vertical bg-crimson" data-click="transform">
+                    <a href="../eXtplorer/index.php">
+                        <div class="tile-content icon">
+                            <i class="icon-upload-2"></i>
+                        </div>
+                        <div class="brand bg-black">
+                            <span class="label fg-white">Upload tools</span>
+                            <div class="badge bg-darkRed paused"></div>
+                        </div>
+                    </a>
+                </div>
 
+                <div class="tile double bg-darker" data-click="transform">
+                    <a href="banner_home.php">
+                        <div class="tile-content icon">
+                            <i class="icon-bookmark-2"></i>
+                        </div>
+                        <div class="brand bg-black">
+                            <span class="label fg-white">Home Banner</span>
+                            <div class="badge bg-darkRed paused"></div>
+                        </div>
+                    </a>
+                </div>
 
-
+                <div class="tile double bg-darkTeal" data-click="transform">
+                    <a href="banner_category.php">
+                        <div class="tile-content icon">
+                            <i class="icon-bookmark"></i>
+                        </div>
+                        <div class="brand bg-black">
+                            <span class="label fg-white">Banner Category</span>
+                            <div class="badge bg-darkRed paused"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
         <?php
         include_once './inc_footer.php';
         ?>

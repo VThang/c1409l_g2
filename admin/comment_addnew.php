@@ -43,7 +43,7 @@ require_once './inc_checklogin.php';
                     Email
                 </th>
                 <td>
-                    <input type="text" id="" value="" name="email" />
+                    <input type="email" id="email" value="" name="email" />
                 </td>            
             </tr>
             <tr>
@@ -51,7 +51,7 @@ require_once './inc_checklogin.php';
                     Title
                 </th>
                 <td>
-                    <input type="text" value="" name="title" />
+                    <input type="text" id="title" value="" name="title" />
                 </td>            
             </tr>
             <tr>
@@ -77,7 +77,9 @@ require_once './inc_checklogin.php';
         function validate() {
             msg = "";
             msg += validateRequire("content");
-            //msg += validateEmail("email")
+            //msg += validateEmail("email");
+            msg += validateRequire("email");
+            msg += validateRequire("title");
 
             if (msg != "") {
                 $("#error-msg").html(msg);
