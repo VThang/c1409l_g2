@@ -13,7 +13,8 @@ function register() {
     execute_query($query);
     $_SESSION['register_email'] = $email;
 
-    redirect('../checkout.php');
+    
+    redirect("../email/email_welcome.php?email=$email");
 }
 
 function method1() {
@@ -78,7 +79,12 @@ function method() {
       $order_details_query = "INSERT INTO `order_details` VALUES (NULL, '$orderid', '$productid[$b]', '$import_price[$b]', '$export_price[$b]', '$quantity[$b]')";
       execute_query($order_details_query);
     }
-    
+    $cart_session = $_SESSION['cart'] ;
+    redirect("../email/email_invoice.php?email=$email&method=$method&orderid=$orderid");
+}
+
+function select() {
+    $method = get('method');
     unset($_SESSION['cart']);
     
     if ($method == '1') {
@@ -90,4 +96,5 @@ function method() {
     } else {
         echo 'error';
     }
+    
 }

@@ -23,7 +23,6 @@
             $queryview .= $comma . $key;
             $comma = ",";
         }
-
         $queryview .= ")";
         $resultview = execute_query($queryview);
     } else {

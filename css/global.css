@@ -368,11 +368,11 @@ div.main-content {
     min-height: 300px;
 }
 
-input[type=text] {padding:5px; border:2px solid #ccc; 
+input[type=text]#search {padding:5px; border:2px solid #ccc; 
 -webkit-border-radius: 5px;
     border-radius: 5px;
 }
-input[type=text]:focus {border-color:#333; }
+input[type=text]#search:focus {border-color:#333; }
 
 input[type=submit] {padding:5px 15px; background:#ccc; border:0 none;
     cursor:pointer;
