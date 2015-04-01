@@ -57,7 +57,7 @@ $adminresult = execute_query($query);
                     <li class="stick bg-yellow">
                     <li class="title dropdown-toggle" style="cursor: pointer;" id="email" href="#"><i class="fa fa-envelope-o"></i>&nbsp;&nbsp;&nbsp;Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
                     <ul class="dropdown-menu" data-role="dropdown">
-                        <li><a href="">Send to customer</a></li>
+                        <li><a href="email_admin_send.php">Send to customer</a></li>
                     </ul>
 
                     <li class="title"><i class="icon-cog"></i> Config</li>

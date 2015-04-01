@@ -5,11 +5,11 @@ include_once './inc_checklogin.php';
 
 $customerid = get("customerid");
 
-$query = "SELECT * FROM `customer` WHERE `customer_id`='$customerid'";
-$result = execute_query($query);
+$view_query = "SELECT * FROM `customer` WHERE `customer_id`='$customerid'";
+$view_result = execute_query($view_query);
 
-if (mysqli_num_rows($result) > 0) {
-    $row = mysqli_fetch_assoc($result);
+if (mysqli_num_rows($view_result) > 0) {
+    $view_row = mysqli_fetch_assoc($view_result);
 }
 ?>
 <!DOCTYPE html>
@@ -35,17 +35,17 @@ if (mysqli_num_rows($result) > 0) {
             <tr>
                 <th>Email</th>
                 <td><input type="text" name="email" id="email"
-                           value="<?php echo $row["email"] ?>" /></td>
+                           value="<?php echo $view_row["email"] ?>" /></td>
             </tr>
             <tr>
                 <th>Name</th>
                 <td><input type="text" name="name" id="name"
-                           value="<?php echo $row["name"] ?>" /></td>
+                           value="<?php echo $view_row["name"] ?>" /></td>
             </tr>        
             <tr>
                 <th>Phone</th>
                 <td><input type="text" name="phone" id="phone"
-                           value="<?php echo $row["phone"] ?>" /></td>
+                           value="<?php echo $view_row["phone"] ?>" /></td>
             </tr>
             <tr>
                 <th><input class="info" type="submit" value="Update" /></th>

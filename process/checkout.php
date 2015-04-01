@@ -31,7 +31,7 @@ function method3() {
 
 function method() {
     date_default_timezone_get();
-    $date = date('d/m/Y');
+    $date = date('Y/m/d');
 
     $queryview = "SELECT * FROM `product` WHERE `product_id` IN (";
     $comma = "";

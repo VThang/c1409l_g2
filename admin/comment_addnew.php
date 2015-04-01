@@ -43,7 +43,7 @@ require_once './inc_checklogin.php';
                     Email
                 </th>
                 <td>
-                    <input type="email" id="email" value="" name="email" />
+                    <input type="email" id="emailInput" value="" name="email" />
                 </td>            
             </tr>
             <tr>
@@ -77,8 +77,8 @@ require_once './inc_checklogin.php';
         function validate() {
             msg = "";
             msg += validateRequire("content");
-            //msg += validateEmail("email");
-            msg += validateRequire("email");
+            msg += validateEmail("emailInput");
+            msg += validateRequire("emailInput");
             msg += validateRequire("title");
 
             if (msg != "") {

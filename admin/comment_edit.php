@@ -4,11 +4,11 @@ include_once './inc_checklogin.php';
 
 $commentid = get("commentid");
 
-$query = "SELECT * FROM `comment` WHERE `comment_id`='$commentid'";
-$result = execute_query($query);
+$view_query = "SELECT * FROM `comment` WHERE `comment_id`='$commentid'";
+$view_result = execute_query($view_query);
 
-if (mysqli_num_rows($result) > 0) {
-    $row = mysqli_fetch_assoc($result);
+if (mysqli_num_rows($view_result) > 0) {
+    $view_row = mysqli_fetch_assoc($view_result);
 }
 ?>
 <!DOCTYPE html>
@@ -34,22 +34,22 @@ if (mysqli_num_rows($result) > 0) {
             <tr>
                 <th>Product ID</th>
                 <td><input type="text" name="product_id" id="product_id" readonly
-                           value="<?php echo $row["product_id"] ?>" /></td>
+                           value="<?php echo $view_row["product_id"] ?>" /></td>
             </tr>
             <tr>
                 <th>Email</th>
                 <td><input type="text" name="email" id="email" readonly
-                           value="<?php echo $row["email"] ?>" /></td>
+                           value="<?php echo $view_row["email"] ?>" /></td>
             </tr>
             <tr>
                 <th>Title</th>
                 <td><input type="text" name="title" id="title"
-                           value="<?php echo $row["title"] ?>" /></td>
+                           value="<?php echo $view_row["title"] ?>" /></td>
             </tr>        
             <tr>
                 <th>Content</th>
                 <td><input type="text" name="content" id="content"
-                           value="<?php echo $row["content"] ?>" /></td>
+                           value="<?php echo $view_row["content"] ?>" /></td>
             </tr>
             <tr>
                 <th colspan="2"><input class="info" type="submit" value="Update" /></th>
