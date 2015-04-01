@@ -4,11 +4,11 @@ require_once './inc_checklogin.php';
 
 $categoryid = get("categoryid");
 
-$query = "SELECT * FROM `category` WHERE `cate_id`='$categoryid'";
-$result = execute_query($query);
+$view_query = "SELECT * FROM `category` WHERE `cate_id`='$categoryid'";
+$view_result = execute_query($view_query);
 
-if (mysqli_num_rows($result) > 0) {
-    $row = mysqli_fetch_assoc($result);
+if (mysqli_num_rows($view_result) > 0) {
+    $view_row = mysqli_fetch_assoc($view_result);
 }
 ?>
 <!DOCTYPE html>
@@ -34,7 +34,7 @@ if (mysqli_num_rows($result) > 0) {
         <tr>
             <th>Category Name</th>
             <td><input type="text" name="cate_name" id="cate_name"
-                       value="<?php echo $row["cate_name"] ?>" /></td>
+                       value="<?php echo $view_row["cate_name"] ?>" /></td>
         </tr>
         <tr>
             <th colspan="2"><input type="submit" value="Update" /></th>

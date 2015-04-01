@@ -7,6 +7,7 @@
 
 function validateRequire(id) {
     value = $("#"+id).val();
+    //alert(value);
     if (!value || value.length == 0) {
         return " " + id + " cannot be blank. ";
     } else {

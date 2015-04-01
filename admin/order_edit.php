@@ -3,11 +3,11 @@ require_once './process/_inc.php';
 require_once './inc_checklogin.php';
 
 $orderid = get("orderid");
-$query = "SELECT * FROM `order` JOIN `customer` ON `order`.customer_id = `customer`.customer_id";
-$result = execute_query($query);
+$view_query = "SELECT * FROM `order` JOIN `customer` ON `order`.customer_id = `customer`.customer_id";
+$view_result = execute_query($view_query);
 
-if (mysqli_num_rows($result) > 0) {
-    $row = mysqli_fetch_assoc($result);
+if (mysqli_num_rows($view_result) > 0) {
+    $view_row = mysqli_fetch_assoc($view_result);
 }
 
 $query1 = "SELECT * FROM `customer`";
@@ -36,7 +36,7 @@ $result1 = execute_query($query1);
             <tr>
                 <th>Order Date</th>
                 <td><input type="date" name="order_date"
-                           value="<?php echo $row["order_date"] ?>" /></td>
+                           value="<?php echo $view_row["order_date"] ?>" /></td>
             </tr>
             <tr>
                 <th>Email</th>
@@ -51,21 +51,21 @@ $result1 = execute_query($query1);
             <tr>
                 <th>Product Quantity</th>
                 <td><input type="text" name="product_quantity"
-                           value="<?php echo $row["product_quantity"] ?>" /></td>
+                           value="<?php echo $view_row["product_quantity"] ?>" /></td>
             </tr>
             <tr>
                 <th>Import Status</th>
                 <td><input type="text" name="import_status"
-                           value="<?php echo $row["import_status"] ?>" /></td>
+                           value="<?php echo $view_row["import_status"] ?>" /></td>
             </tr>
             <tr>
                 <th>Export Status</th>
                 <td><input type="text" name="export_status"
-                           value="<?php echo $row["export_status"] ?>" /></td>
+                           value="<?php echo $view_row["export_status"] ?>" /></td>
             </tr>
             <tr>
                 <th>Remarks</th>
-                <td><textarea name="remarks"><?php echo $row["remarks"] ?></textarea>
+                <td><textarea name="remarks"><?php echo $view_row["remarks"] ?></textarea>
                 </td>
             </tr>
             <tr>

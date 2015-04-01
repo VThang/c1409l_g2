@@ -21,14 +21,14 @@ require_once './inc_checklogin.php';
     <?php
     include_once './inc_header.php';
     ?>
-    <form action="process/customer.php?do=add_new" method="post" onsubmit="validate()">
+    <form action="process/customer.php?do=add_new" method="post" onsubmit="return validate()">
         <table class="table hovered">
             <tr>
                 <th>
                     Email
                 </th>
                 <td>
-                    <input type="text" id="email" value="" name="email" />
+                    <input type="enail" id="email" value="" name="email" />
                 </td>
             </tr>
             <tr>
@@ -36,7 +36,7 @@ require_once './inc_checklogin.php';
                     Name
                 </th>
                 <td>
-                    <input type="text" value="" name="name" />
+                    <input type="text" id="name" value="" name="name" />
                 </td>            
             </tr>
             <tr>
@@ -44,7 +44,7 @@ require_once './inc_checklogin.php';
                     Phone Number
                 </th>
                 <td>
-                    <input type="text" value="" name="phone" />
+                    <input type="number" id="phone" value="" name="phone" />
                 </td>            
             </tr>
             <tr>
@@ -61,8 +61,10 @@ require_once './inc_checklogin.php';
     <script type="text/javascript">
         function validate() {
             msg = "";
-            msg += validateRequire("content");
+            msg += validateRequire("email");
             //msg += validateEmail("email");
+            msg += validateRequire("name");
+            msg += validateRequire("phone");
             
             if (msg != "") {
                 $("#error-msg").html(msg);

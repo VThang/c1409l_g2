@@ -28,7 +28,7 @@ $result2 = execute_query($query2);
     <?php
     include_once './inc_header.php';
     ?>
-    <form action="process/order.php?do=add_new" method="post" onsubmit="validate()">
+    <form action="process/order.php?do=add_new" method="post" onsubmit="">
         <table class="table hovered">
             <tr>
                 <th>
