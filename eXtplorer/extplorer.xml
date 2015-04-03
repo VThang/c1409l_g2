@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="iso-8859-1" ?>
-<mosinstall type="component">
-<!-- Joomla! 1.0 Installer XML File 
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" method="upgrade">
+<!-- Joomla! 3.0 Installer XML File 
 $Id: extplorer.php 164 2010-05-03 15:06:51Z soeren $ -->
     <name>eXtplorer</name>
     <creationDate>22.01.2015</creationDate>
@@ -22,6 +22,8 @@ $Id: extplorer.php 164 2010-05-03 15:06:51Z soeren $ -->
 	  <li>Changing file permissions (chmod)</li></ul><br/>and much more.<br/><br/>
 	  <strong>By default restricted to Superadministrators!</strong>
 	]]></description>
+	<scriptfile>install.extplorer.php</scriptfile>
+
     <files><!-- Frontend Files! -->
         <filename>configuration.ext.php</filename>
         <filename>extplorer.php</filename>
@@ -42,7 +44,7 @@ $Id: extplorer.php 164 2010-05-03 15:06:51Z soeren $ -->
 						  UNIQUE KEY token (token),
 						  KEY path (path),
 						  KEY expires (expires)
-						) TYPE=MyISAM
+						) ENGINE=MyISAM
 			</query>
 			<query>CREATE TABLE IF NOT EXISTS `#__extwebdav_properties` (
 						  path varchar(255) NOT NULL default '',
@@ -51,7 +53,7 @@ $Id: extplorer.php 164 2010-05-03 15:06:51Z soeren $ -->
 						  value text,
 						  PRIMARY KEY ( `ns` ( 100 ) , `path` ( 100 ) , `name` ( 50 ) ),
 						  KEY path (path)
-						) TYPE=MyISAM
+						) ENGINE=MyISAM
 			</query>
 
 	</queries>
@@ -62,10 +64,10 @@ $Id: extplorer.php 164 2010-05-03 15:06:51Z soeren $ -->
 				<query>DROP TABLE IF EXISTS `#__extwebdav_properties`</query>
 			</queries>    	
     </uninstall>
-    <installfile>install.extplorer.php</installfile>
+    
     <administration>
         <menu>eXtplorer</menu>
-        <files><!-- Backend Files! -->
+        <files>		
 				<filename>scripts.tar.gz</filename>
 				<filename>CHANGELOG.txt</filename>
 				<filename>README.txt</filename>
@@ -76,6 +78,7 @@ $Id: extplorer.php 164 2010-05-03 15:06:51Z soeren $ -->
 				<filename>config/conf.php</filename>
 				<filename>config/index.html</filename>
 				<filename>config/mimes.php</filename>
+				<filename>extplorer.j30.php</filename>
 				<filename>eXtplorer.ico</filename>
 				<filename>fetchscript.php</filename>
 				<filename>ftp_tmp/index.html</filename>
@@ -214,7 +217,7 @@ $Id: extplorer.php 164 2010-05-03 15:06:51Z soeren $ -->
 				<filename>include/users.php</filename>
 				<filename>include/view.php</filename>
 				<filename>index.php</filename>
-				<filename>install.extplorer.php</filename>
+				
 				<filename>languages/arabic.php</filename>
 				<filename>languages/arabic_mimes.php</filename>
 				<filename>languages/brazilian_portuguese.php</filename>
@@ -464,7 +467,7 @@ $Id: extplorer.php 164 2010-05-03 15:06:51Z soeren $ -->
 				<filename>uploadhandler.php</filename>
 				<filename>webdav.php</filename>
 				<filename>webdav_authenticate.php</filename>
-<filename>webdav_table.sql.php</filename>
+				<filename>webdav_table.sql.php</filename>
 		</files>
     </administration>
-</mosinstall>
+</extension>

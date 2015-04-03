@@ -28,7 +28,7 @@ require_once './inc_checklogin.php';
                     Email
                 </th>
                 <td>
-                    <input type="enail" id="email" value="" name="email" />
+                    <input type="enail" id="emailInput" value="" name="email" />
                 </td>
             </tr>
             <tr>
@@ -61,8 +61,8 @@ require_once './inc_checklogin.php';
     <script type="text/javascript">
         function validate() {
             msg = "";
-            msg += validateRequire("email");
-            //msg += validateEmail("email");
+            msg += validateRequire("emailInput");
+            msg += validateEmail("emailInput");
             msg += validateRequire("name");
             msg += validateRequire("phone");
             

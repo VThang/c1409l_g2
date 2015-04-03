@@ -33,7 +33,7 @@ require_once './inc_checklogin.php';
                 <td>
                     <select name="product_id">
                         <?php while ($product_row = mysqli_fetch_assoc($product_result)) { ?>
-                        <option value="<?php echo $product_row['product_id']; ?>"><?php echo $product_row['title']; ?></option>
+                            <option value="<?php echo $product_row['product_id']; ?>"><?php echo $product_row['title']; ?></option>
                         <?php } ?>
                     </select>
                 </td>
