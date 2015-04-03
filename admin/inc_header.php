@@ -81,7 +81,7 @@ $adminresult = execute_query($query);
                         <div class="element" id="cp">
                             <a class="dropdown-toggle" href="#">ADMIN CONTROLPANEL</a>
                             <ul class="dropdown-menu" data-role="dropdown">
-                                <li><a href="#">Home Page</a></li>
+                                <li><a href="../home.php">Home Page</a></li>
                                 <li class="divider"></li>
                                 <li><a href="process/admin.php?do=logout">Logout</a></li>
                             </ul>

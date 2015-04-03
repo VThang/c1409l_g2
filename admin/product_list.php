@@ -95,7 +95,7 @@ if ($p > $max_page) {
     <?php
     include_once './inc_header.php';
     ?>
-    <div class="paging">
+    <div class="paging pagination">
         <a href="product_list.php?p=<?php echo $p - 1; ?>">Trước</a>
 
         <?php for ($i = 1; $i <= $max_page; $i++) { ?>
@@ -123,11 +123,11 @@ if ($p > $max_page) {
             <th>Category Name</th>
             <th>Release Date</th>
             <th>Product Details</th>
-            <th>Image1</th>
-            <th>Image2</th>
-            <th>Image3</th>
-            <th>Image4</th>
-            <th>Image5</th>
+            <th style="width: 70px;">Image1</th>
+            <th style="width: 70px;">Image2</th>
+            <th style="width: 70px;">Image3</th>
+            <th style="width: 70px;">Image4</th>
+            <th style="width: 70px;">Image5</th>
         </tr>
         <?php
         print_r($output);
@@ -137,6 +137,16 @@ if ($p > $max_page) {
 
     <a href="product_addnew.php">Add new</a>
 
+    
+    <div class="paging pagination">
+        <a href="product_list.php?p=<?php echo $p - 1; ?>">Trước</a>
+
+        <?php for ($i = 1; $i <= $max_page; $i++) { ?>
+            <a href="product_list.php?p=<?php echo $i ?>"><?php echo $i ?></a>
+        <?php } ?>
+
+        <a href="product_list.php?p=<?php echo $p + 1; ?>">Sau</a>
+    </div>
 
     <?php
     include_once './inc_footer.php';

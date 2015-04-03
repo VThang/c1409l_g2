@@ -62,16 +62,14 @@ $result = execute_query($query1);
     </div>
 
     <table class="table hovered">
-        <tr>		
-            <th>CategoryId</th>
-            <th>CategoryName</th>
+        <tr>
+            <th>Category Name</th>
         </tr>
 
         <?php
         while (($row = mysqli_fetch_assoc($result))) {
             ?>
             <tr>
-                <td><?php echo $row["cate_id"] ?></td>
                 <td><?php echo $row["cate_name"] ?></td>
                 <td><a href="category_edit.php?categoryid=<?php echo $row["cate_id"] ?>">Edit</a></td>
                 <td><a href="process/category.php?do=delete&categoryid=<?php echo $row["cate_id"] ?>" onclick="return confirm('Are you sure to delete this Category?')">X</a></td>
@@ -80,6 +78,8 @@ $result = execute_query($query1);
     </table>
 
     <a href="category_addnew.php">Add new Category</a>
+    
+    
     <?php
     require './inc_footer.php';
     ?>

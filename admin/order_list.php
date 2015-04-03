@@ -41,17 +41,17 @@ if (post('search') == '') {
             $p = 1;
         }
         if (post('search_att') == "order_id") {
-            $count_query = "SELECT COUNT(*) AS cnt FROM `order` JOIN `customer` ON `order`.customer_id = `customer`.customer_id  ORDER BY `order_id` DESC WHERE `order`.order_id LIKE '%$searchq%'";
+            $count_query = "SELECT COUNT(*) AS cnt FROM `order` JOIN `customer` ON `order`.customer_id = `customer`.customer_id WHERE `order`.order_id LIKE '%$searchq%'";
         } else {
-            $count_query = "SELECT COUNT(*) AS cnt FROM `order` JOIN `customer` ON `order`.customer_id = `customer`.customer_id  ORDER BY `order_id` DESC WHERE `$search_att` LIKE '%$searchq%'";
+            $count_query = "SELECT COUNT(*) AS cnt FROM `order` JOIN `customer` ON `order`.customer_id = `customer`.customer_id WHERE `$search_att` LIKE '%$searchq%'";
         }
         $count_result = execute_query($count_query);
         $count_row = mysqli_fetch_assoc($count_result);
         $max_page = ceil($count_row["cnt"] / PAGE_ROW);
         if (post('search_att') == "order_id") {
-            $query = "SELECT * FROM `order` JOIN `customer` ON `order`.customer_id = `customer`.customer_id  ORDER BY `order_id` DESC WHERE `order`.order_id LIKE '%$searchq%'" . createLimitForPaging($p);
+            $query = "SELECT * FROM `order` JOIN `customer` ON `order`.customer_id = `customer`.customer_id WHERE `order`.order_id LIKE '%$searchq%'" . createLimitForPaging($p);
         } else {
-            $query = "SELECT * FROM `order` JOIN `customer` ON `order`.customer_id = `customer`.customer_id  ORDER BY `order_id` DESC WHERE `$search_att` LIKE '%$searchq%'" . createLimitForPaging($p);
+            $query = "SELECT * FROM `order` JOIN `customer` ON `order`.customer_id = `customer`.customer_id WHERE `$search_att` LIKE '%$searchq%'" . createLimitForPaging($p);
         }
 
         $result = execute_query($query);

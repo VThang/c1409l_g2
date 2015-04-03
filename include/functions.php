@@ -79,10 +79,6 @@ function post($param) {
     }
 }
 
-/*
-  Sử dụng để tạo mệnh đề LIMIT khi phân trang
- *  */
-
 function createLimitForPaging($pageNumber) {
     if ($pageNumber < 1) {
         $pageNumber = 1;
@@ -99,9 +95,6 @@ function createLimitForPagingProduct($pageNumber) {
     return " LIMIT $start, " . CATEGORY_LIST;
 }
 
-/*
-  Tính tổng số lượng trang với từng bảng
- *  */
 
 function getMaxPage($table) {
     $count_query = "SELECT COUNT(*) AS cnt FROM $table";
@@ -144,6 +137,12 @@ function save_value_config($config, $configvalue) {
 
 function save_sub_value_config($config) {
     $configsubvalue = post("configsubvalue");
+    $q_config = "UPDATE `config` SET `config_sub_value` = '$configsubvalue' WHERE `config_key` = '$config'";
+    execute_query($q_config);
+
+    return "";
+}
+function save_sub_value_config2($config, $configsubvalue) {
     $q_config = "UPDATE `config` SET `config_sub_value` = '$configsubvalue' WHERE `config_key` = '$config'";
     execute_query($q_config);
 
