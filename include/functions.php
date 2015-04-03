@@ -1,13 +1,13 @@
 <?php
 
 $STATUS = array();
-$STATUS["0"] = "Online Banking";
-$STATUS["1"] = "By Mobile Card";
-$STATUS["2"] = "In our Store";
-$STATUS["3"] = "Pending";
-$STATUS["4"] = "Processing";
-$STATUS["5"] = "Canceled";
-$STATUS["6"] = "Complete";
+$STATUS["1"] = "Online Banking";
+$STATUS["2"] = "By Mobile Card";
+$STATUS["3"] = "In our Store";
+$STATUS["5"] = "Pending";
+$STATUS["6"] = "Processing";
+$STATUS["7"] = "Canceled";
+$STATUS["8"] = "Complete";
 
  
 //$STATUS[$stt];

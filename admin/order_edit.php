@@ -3,7 +3,8 @@ require_once './process/_inc.php';
 require_once './inc_checklogin.php';
 
 $orderid = get("orderid");
-$view_query = "SELECT * FROM `order` JOIN `customer` ON `order`.customer_id = `customer`.customer_id";
+$view_query = "SELECT * FROM `order` JOIN `customer` ON `order`.customer_id = `customer`.customer_id WHERE `order_id`='$orderid' ";
+
 $view_result = execute_query($view_query);
 
 if (mysqli_num_rows($view_result) > 0) {
@@ -43,29 +44,46 @@ $result1 = execute_query($query1);
                 <td>
                     <select name="customer_id" >
                         <?php while ($row1 = mysqli_fetch_assoc($result1)) { ?>
-                            <option value="<?php echo $row1['customer_id']; ?>"><?php echo $row1['email']; ?></option>
+                            <option value="<?php echo $row1['customer_id']; ?>" <?php if ($row1['customer_id'] == $view_row['customer_id']){ echo "selected"; } ?>><?php echo $row1['email']; ?></option>
                         <?php } ?>
                     </select>
                 </td>
             </tr>   
             <tr>
                 <th>Product Quantity</th>
-                <td><input type="text" name="product_quantity"
+                <td><input type="text" name="product_quantity" readonly=""
                            value="<?php echo $view_row["product_quantity"] ?>" /></td>
             </tr>
             <tr>
-                <th>Import Status</th>
-                <td><input type="text" name="import_status"
-                           value="<?php echo $view_row["import_status"] ?>" /></td>
+                <th>Import Status <?php echo $view_row['import_status']; ?></th>
+                <td>
+                    <select name="import_status">
+                        <option value="5" <?php if ($view_row['import_status'] == 5){ echo "selected"; } ?>><?php echo $STATUS['5'] ?></option>
+                        <option value="6" <?php if ($view_row['import_status'] == 6){ echo "selected"; } ?> ><?php echo $STATUS['6'] ?></option>
+                        <option value="7" <?php if ($view_row['import_status'] == 7){ echo "selected"; } ?>><?php echo $STATUS['7'] ?></option>
+                        <option value="8" <?php if ($view_row['import_status'] == 8){ echo "selected"; } ?>><?php echo $STATUS['8'] ?></option>
+                    </select> 
+                </td>
             </tr>
             <tr>
-                <th>Export Status</th>
-                <td><input type="text" name="export_status"
-                           value="<?php echo $view_row["export_status"] ?>" /></td>
+                <th>Export Status <?php echo $view_row['export_status']; ?></th>
+                <td>
+                    <select name="export_status">
+                        <option value="5" <?php if ($view_row['export_status'] == 5){ echo "selected"; } ?>><?php echo $STATUS['5'] ?></option>
+                        <option value="6" <?php if ($view_row['export_status'] == 6){ echo "selected"; } ?> ><?php echo $STATUS['6'] ?></option>
+                        <option value="7" <?php if ($view_row['export_status'] == 7){ echo "selected"; } ?>><?php echo $STATUS['7'] ?></option>
+                        <option value="8" <?php if ($view_row['export_status'] == 8){ echo "selected"; } ?>><?php echo $STATUS['8'] ?></option>
+                    </select>
+                </td>
             </tr>
             <tr>
-                <th>Remarks</th>
-                <td><textarea name="remarks"><?php echo $view_row["remarks"] ?></textarea>
+                <th>Payment method</th>
+                <td>
+                    <select name="remarks">
+                        <option value="1" <?php if ($view_row['remarks'] == 5){ echo "selected"; } ?>><?php echo $STATUS['1'] ?></option>
+                        <option value="2" <?php if ($view_row['remarks'] == 6){ echo "selected"; } ?> ><?php echo $STATUS['2'] ?></option>
+                        <option value="3" <?php if ($view_row['remarks'] == 7){ echo "selected"; } ?>><?php echo $STATUS['3'] ?></option>
+                    </select>
                 </td>
             </tr>
             <tr>

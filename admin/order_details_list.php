@@ -36,7 +36,7 @@ if (post('search') == '') {
         $edit = '<a href="order_details_edit.php?orderid=' . $orderid . '">Edit</a></td>';
         $question = "'Are you sure to delete Order Details have Order ID = $orderid?'";
         $delete = '<a href="process/order_details.php?do=delete&orderid=' . $orderid . '" onclick="return confirm(' . $question . ')">X</a>';
-        $output .= '<td> ' . $orderid . '</td><td>' . $title . '</td><td>' . $impprice . '</td><td>' . $expprice . '</td><td>' . $quantity . '</td><td>' . $edit . '</td><td>' . $delete . '</td></tr>';
+        $output .= '<td> ' . $orderid . '</td><td>' . $title . '</td><td>' . $impprice . '</td><td>' . $expprice . '</td><td>' . $quantity . '</td></tr>';
     }
 } elseif (isset($_SESSION["searchq"])) {
     $orderid = get('orderid');
@@ -73,7 +73,7 @@ if (post('search') == '') {
             $edit = '<a href="order_details_edit.php?orderid=' . $orderid . '">Edit</a></td>';
             $question = "'Are you sure to delete Order Details have Order ID = $orderid?'";
             $delete = '<a href="process/order_details.php?do=delete&detailsid=' . $detailsid . '" onclick="return confirm(' . $question . ')">X</a>';
-            $output .= '<td> ' . $orderid . '</td><td>' . $title . '</td><td>' . $impprice . '</td><td>' . $expprice . '</td><td>' . $quantity . '</td><td>' . $edit . '</td><!--<td>' . $delete . '</td>--></tr>';
+            $output .= '<td> ' . $orderid . '</td><td>' . $title . '</td><td>' . $impprice . '</td><td>' . $expprice . '</td><td>' . $quantity . '</td></tr>';
         }
     }
 } else {
@@ -112,7 +112,7 @@ if (post('search') == '') {
                 $edit = '<a href="order_details_edit.php?orderid=' . $orderid . '">Edit</a></td>';
                 $question = "'Are you sure to delete Order Details have Order ID = $orderid?'";
                 $delete = '<a href="process/order_details.php?do=delete&detailsid=' . $detailsid . '" onclick="return confirm(' . $question . ')">X</a>';
-                $output .= '<td> ' . $orderid . '</td><td>' . $title . '</td><td>' . $impprice . '</td><td>' . $expprice . '</td><td>' . $quantity . '</td><td>' . $edit . '</td><!--<td>' . $delete . '</td>--></tr>';
+                $output .= '<td> ' . $orderid . '</td><td>' . $title . '</td><td>' . $impprice . '</td><td>' . $expprice . '</td><td>' . $quantity . '</td></tr>';
             }
         }
     } else {

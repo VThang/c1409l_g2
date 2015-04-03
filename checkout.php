@@ -128,8 +128,8 @@
         }
         function validate2() {
             msg = "";
-            msg += validateEmail("nameInput");
-            msg += validateEmail("phoneInput");
+            msg += validateRequire("nameInput");
+            msg += validateRequire("phoneInput");
 
             if (msg != "") {
                 $("#error-msg").html(msg);

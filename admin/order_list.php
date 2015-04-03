@@ -28,7 +28,7 @@ if (post('search') == '') {
         $edit = '<a href="order_edit.php?orderid=' . $orderid . '">Edit</a></td>';
         $question = "'Are you sure to delete this Order?'";
         $delete = '<a href="process/order.php?do=delete&orderid=' . $orderid . '" onclick="return confirm(' . $question . ')">X</a>';
-        $output .= '<td> ' . $orderid . '</td><td>' . $orderdate . '</td><td>' . $customername . '</td><td>' . $email . '</td><td>' . $product_quantity . '</td><td>' . $importstat . '</td><td>' . $exportstat . '</td><td>' . $remarks . '</td><td>' . $details . '</td><td>' . $edit . '</td><td>' . $delete . '</td></tr>';
+        $output .= '<td> ' . $orderid . '</td><td>' . $orderdate . '</td><td>' . $customername . '</td><td>' . $email . '</td><td>' . $product_quantity . '</td><td>' . $STATUS[$importstat] . '</td><td>' . $STATUS[$exportstat] . '</td><td>' . $STATUS[$remarks] . '</td><td>' . $details . '</td><td>' . $edit . '</td><td>' . $delete . '</td></tr>';
     }
 } else {
     if (post('search')) {
@@ -72,7 +72,7 @@ if (post('search') == '') {
                 $edit = '<a href="order_edit.php?orderid=' . $orderid . '">Edit</a></td>';
                 $question = "'Are you sure to delete this Order?'";
                 $delete = '<a href="process/order.php?do=delete&orderid=' . $orderid . '" onclick="return confirm(' . $question . ')">X</a>';
-                $output .= '<td> ' . $orderid . '</td><td>' . $orderdate . '</td><td>' . $customername . '</td><td>' . $email . '</td><td>' . $product_quantity . '</td><td>' . $importstat . '</td><td>' . $exportstat . '</td><td>' . $remarks . '</td><td>' . $details . '</td><td>' . $edit . '</td><td>' . $delete . '</td></tr>';
+                $output .= '<td> ' . $orderid . '</td><td>' . $orderdate . '</td><td>' . $customername . '</td><td>' . $email . '</td><td>' . $product_quantity . '</td><td>' . $STATUS[$importstat] . '</td><td>' . $STATUS[$exportstat] . '</td><td>' . $STATUS[$remarks] . '</td><td>' . $details . '</td><td>' . $edit . '</td><td>' . $delete . '</td></tr>';
             }
         }
     }
@@ -131,7 +131,7 @@ if ($p > $max_page) {
             <th>Product Quantity</th>
             <th>Import Status</th>
             <th>Export Status</th>
-            <th>Remarks</th>
+            <th>Payment method</th>
         </tr>
         <?php
         print_r($output);
