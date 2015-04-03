@@ -25,11 +25,12 @@ if (mysqli_num_rows($view_result) > 0) {
         <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
         <script type="text/javascript" src="js/jquery.widget.min.js"></script>
         <script type="text/javascript" src="js/metro.min.js"></script>
+        <script type="text/javascript" src="js/validateform.js"></script>
     </head>
     <?php
     include_once './inc_header.php';
     ?>
-    <form action="process/comment.php?do=update&commentid=<?php print_r($commentid); ?>" method="post">
+    <form action="process/comment.php?do=update&commentid=<?php print_r($commentid); ?>" method="post" onsubmit="return validate()">
         <table class="table hovered">
             <tr>
                 <th>Product ID</th>
@@ -38,7 +39,7 @@ if (mysqli_num_rows($view_result) > 0) {
             </tr>
             <tr>
                 <th>Email</th>
-                <td><input type="text" name="email" id="email" readonly
+                <td><input type="text" name="email"  id="emailInput" readonly
                            value="<?php echo $view_row["email"] ?>" /></td>
             </tr>
             <tr>
@@ -56,6 +57,24 @@ if (mysqli_num_rows($view_result) > 0) {
             </tr>
         </table>
     </form>
+    
+    <script type="text/javascript">
+        function validate() {
+            msg = "";
+            msg += validateRequire("content");
+            msg += validateEmail("emailInput");
+            msg += validateRequire("emailInput");
+            msg += validateRequire("title");
+
+            if (msg != "") {
+                $("#error-msg").html(msg);
+                return false;
+
+            } else {
+                return true;
+            }
+        }
+    </script> 
     <?php
     include_once './inc_footer.php';
     ?>

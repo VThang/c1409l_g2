@@ -77,7 +77,6 @@ $result2 = execute_query($query2);
         function validate() {
             msg = "";
             msg += validateRequire("content");
-            //msg += validateEmail("email");
 
             if (msg != "") {
                 $("#error-msg").html(msg);
