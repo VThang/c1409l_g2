@@ -4,10 +4,10 @@ require_once './inc_checklogin.php';
 
 $adminid = get("adminid");
 
-$result = execute_query("SELECT * FROM `admin` WHERE `AdminId` =$adminid");
+$view_result = execute_query("SELECT * FROM `admin` WHERE `adminID` ='$adminid'");
 
-if (mysqli_num_rows($result) > 0) {
-    $row = mysqli_fetch_assoc($result);
+if (mysqli_num_rows($view_result) > 0) {
+    $view_row = mysqli_fetch_assoc($view_result);
 }
 ?>
 <!DOCTYPE html>
@@ -33,20 +33,20 @@ if (mysqli_num_rows($result) > 0) {
             <tr>
                 <th>Username</th>
                 <td><input type="text" name="username" id="username"
-                           value="<?php echo $row["Username"] ?>" /></td>
+                           value="<?php echo $view_row["Username"] ?>" /></td>
             </tr>
 
             <tr>
                 <th>Password</th>
                 <td><input type="password" name="password" id="password"
-                           value="<?php echo $row["Password"] ?>" /></td>
+                           value="<?php echo $view_row["Password"] ?>" /></td>
             </tr>
 
 
             <tr>
                 <th>Fullname</th>
                 <td><input type="text" name="fullname" id="fullname"
-                           value="<?php echo $row["Fullname"] ?>" /></td>
+                           value="<?php echo $view_row["Fullname"] ?>" /></td>
             </tr>
 
             <tr>
